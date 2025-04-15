@@ -50,17 +50,11 @@ recebeNome(nome: "Lucas")
 recebeNome(nome: nil)
 
 
-func pagarConta(valor: Double?, pessoas: Int?){
-    guard let valor = valor, let pessoas = pessoas 
-    else { print("Informacoes faltando")
-        return
-    }
-    let garcom: Double = 0.10
-    let total = valor + (valor * garcom)
-
-    let valorPorPessoa = total / Double(pessoas)
-    print("Valor total: \(total)")
+func pagarConta(_ valor: Double, _ pessoas: Int) -> Double{
+    let valorComTaxa = valor * 1.1
+    return valorComTaxa / Double(pessoas)
 }
 
 
-pagarConta(valor:120.0, pessoas: 4)
+let totalParaCadaPessoa = pagarConta(150, 4)
+print(totalParaCadaPessoa)
