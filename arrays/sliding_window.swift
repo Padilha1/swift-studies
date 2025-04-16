@@ -42,9 +42,48 @@ class Solution {
     
     return res
     }
+    */
 
+    func containsNearbyDuplicate(_ nums: [Int], _ k: Int) -> Bool {
+        var seen = Set<Int>()
+
+        for i in 0..<nums.count {
+            if seen.contains(nums[i]){
+                return true
+            }
+            seen.insert(nums[i])
+            if i >= k {
+                seen.remove(nums[i - k])
+            }
+        }
+
+        return false
+    }
+
+    /*
+        { 
+            var dict: [Int: Int] = [:]
+
+            dict.reserveCapacity(nums.count)
+
+            for (i, value) in nums.enumerated() {
+
+                if nil != dict[value], i - dict[value]! <= k {
+                    return true
+                }
+                dict[value] = i
+            } 
+
+            return false
+        }
     */
 }
 
 let s = Solution()
 print(s.maximumLengthSubstring("bcbbbcba")) // Output: 4
+
+let nums1 = [1,2,3,1]
+let nums2 = [1,0,1,1]
+let nums3 = [1,2,3,1,2,3]
+
+print(s.containsNearbyDuplicate(nums3,2))
