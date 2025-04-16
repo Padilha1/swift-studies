@@ -1,18 +1,38 @@
 
-struct ContaCorrente {
-    var saldo = 0.0
-    var nome: String
+// struct ContaCorrente {
+//     var saldo = 0.0
+//     var nome: String
 
-    mutating func sacar(_ valor: Double) {
-        saldo -= valor
+//     mutating func sacar(_ valor: Double) {
+//         saldo -= valor
+//     }
+
+//     mutating func depositar (_ valor: Double) {
+//         saldo += valor
+//     }
+
+// }
+
+
+
+class ContaCorrente {
+    var saldo: Double
+    var nome: String
+    
+    func sacar(_ valor: Double) {
+         saldo -= valor
     }
 
-    mutating func depositar (_ valor: Double) {
-        saldo += valor
+    func depositar (_ valor: Double) {
+       saldo += valor
+   }
+
+    init(nome: String){
+        saldo = 0.0
+        self.nome = nome
     }
 
 }
-
 
 var contaCorrenteMatheus = ContaCorrente(nome: "Matheus")
 print(contaCorrenteMatheus.saldo)
