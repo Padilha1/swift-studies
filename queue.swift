@@ -1,3 +1,14 @@
+/*
+    First In, First Out (primeiro a entrar, primeiro a sair)
+
+    1. A pessoa entra no final da fila → push()
+    2. A pessoa sai pela frente da fila → pop()
+    3. Você pode olhar quem está na frente da fila → peek()
+
+    push: O(1) — adicionar ao final do array é eficiente.
+    pop: O(n) — removeFirst() é O(n) pois realoca os índices. (melhor usar uma deque se performance for crítica).
+    peek: O(1)
+*/
 
 struct Queue<T> {
     private var elements: [T] = []
